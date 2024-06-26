@@ -168,7 +168,7 @@ const Calendar: React.FC = () => {
               {renderDays()}
               {renderCells()}
               <ScrollShadow hideScrollBar className="w-full h-96">
-                <div className="flex flex-col mx-1 ">
+                <div className="flex flex-col mx-2 ">
                   <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
                     <div className='flex justify-center items-center'>
                       <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
