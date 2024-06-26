@@ -70,11 +70,18 @@ const CalendarBig = () => {
         if (isSameMonth(day, monthStart)) {
           days.push(
             <div
-              className={`p-2 text-center cursor-pointer rounded-full ${isSameDay(day, selectedDate) ? 'bg-blue-500 text-white' : ''}`}
+              className="flex justify-center items-center cursor-pointer w-full h-12"
               key={day.toISOString()}
               onClick={() => onDateClick(cloneDay)}
             >
-              <span>{formattedDate}</span>
+              <div
+                className={`flex justify-center items-center w-8 h-8 rounded-full ${isSameDay(day, selectedDate) ? 'bg-blue-500 text-white' : ''
+                  } ${isSameDay(day, new Date()) && !isSameDay(day, selectedDate) ? 'border-2 border-blue-200 bg-blue-200 text-blue-500' : ''}`}
+              >
+                <span className="font-inter font-semibold text-sm">
+                  {formattedDate}
+                </span>
+              </div>
             </div>
           );
         } else {
@@ -97,7 +104,7 @@ const CalendarBig = () => {
   };
 
   return (
-    <div className="max-w-1088 flex flex-grow overflow-auto justify-between my-0 mx-auto">
+    <div className="max-w-1088 flex flex-grow overflow-auto justify-between my-0 px-3 mx-auto">
       <div className="max-w-528 flex flex-grow flex-col justify-between border-2 border-gray-200 rounded-3xl p-8 pb-4">
         <div className="flex flex-col flex-grow">
           <span className="font-inter text-2xl font-semibold tracking-tight text-left text-gray-800">Select date and time</span>
@@ -108,6 +115,53 @@ const CalendarBig = () => {
           {renderHeader()}
           {renderDays()}
           {renderCells()}
+          <div className="flex flex-wrap">
+            <div className="w-1/2 p-2">
+              <div className="flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3">
+                <div className="flex justify-center items-center">
+                  <input type="radio" className="rounded-full h-4 w-4 mr-1"></input>
+                  <span>11:00 - 12:00</span>
+                </div>
+                <span>€80</span>
+              </div>
+            </div>
+            <div className="w-1/2 p-2">
+              <div className="flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3">
+                <div className="flex justify-center items-center">
+                  <input type="radio" className="rounded-full h-4 w-4 mr-1"></input>
+                  <span>11:00 - 12:00</span>
+                </div>
+                <span>€80</span>
+              </div>
+            </div>
+            <div className="w-1/2 p-2">
+              <div className="flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3">
+                <div className="flex justify-center items-center">
+                  <input type="radio" className="rounded-full h-4 w-4 mr-1"></input>
+                  <span>11:00 - 12:00</span>
+                </div>
+                <span>€80</span>
+              </div>
+            </div>
+            <div className="w-1/2 p-2">
+              <div className="flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3">
+                <div className="flex justify-center items-center">
+                  <input type="radio" className="rounded-full h-4 w-4 mr-1"></input>
+                  <span>11:00 - 12:00</span>
+                </div>
+                <span>€80</span>
+              </div>
+            </div>
+            <div className="w-1/2 p-2">
+              <div className="flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3">
+                <div className="flex justify-center items-center">
+                  <input type="radio" className="rounded-full h-4 w-4 mr-1"></input>
+                  <span>11:00 - 12:00</span>
+                </div>
+                <span>€80</span>
+              </div>
+            </div>
+          </div>
 
         </div>
         <div className="flex justify-center items-center border-t border-gray-200 w-full">

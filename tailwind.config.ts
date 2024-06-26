@@ -14,7 +14,6 @@ const config: Config = {
         customGray: 'rgba(77, 84, 97, 1)',
       },
       width: {
-       
         '480' : '480px'
       },
       maxWidth:{
