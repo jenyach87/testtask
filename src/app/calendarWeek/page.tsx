@@ -56,49 +56,6 @@ const Calendar: React.FC = () => {
     return <div className="flex justify-around border-b border-gray-200">{days}</div>;
   };
 
-  // const renderCells = () => {
-  //   const startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
-  //   const endDate = lastDayOfWeek(currentMonth, { weekStartsOn: 1 });
-  //   const dateFormat = "d";
-  //   const rows = [];
-  //   let days = [];
-  //   let day = startDate;
-
-  //   while (day <= endDate) {
-  //     for (let i = 0; i < 7; i++) {
-  //       const formattedDate = format(day, dateFormat);
-  //       const cloneDay = day;
-
-  //       days.push(
-  //         <div
-  //           className={`flex justify-center items-center cursor-pointer w-full h-10 `}
-  //           key={day.toString()}
-  //           onClick={() => setSelectedDate(cloneDay)}
-  //         >
-  //           <div className={`flex justify-center font-inter font-semibold text-sm ${isSameDay(day, selectedDate) ? 'bg-blue-500 text-white rounded-3xl px-3 py-2' : ''} ${isSameDay(day, new Date()) && !isSameDay(day, selectedDate) ? ' text-blue-500' : ''}`}>{formattedDate}</div>
-  //         </div>
-  //       );
-
-  //       day = addDays(day, 1);
-  //     }
-
-  //     rows.push(<div className="flex justify-around mt-4" key={day.toString()}>{days}</div>);
-  //     days = [];
-  //   }
-
-  //   return (
-  //     <div className="flex justify-around pb-2 border-b border-gray-200">
-  //       <div className="flex justify-center items-center cursor-pointer mt-3" onClick={() => changeWeekHandle("prev")}>
-  //         <FaChevronLeft className="mr-2 " />
-  //       </div>
-  //       <div className="w-full">{rows}</div>
-  //       <div className="flex justify-center items-center cursor-pointer mt-3" onClick={() => changeWeekHandle("next")}>
-  //         <FaChevronRight className="ml-2" />
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
   const renderCells = () => {
     const startDate = startOfWeek(currentMonth, { weekStartsOn: 1 });
     const endDate = lastDayOfWeek(currentMonth, { weekStartsOn: 1 });
