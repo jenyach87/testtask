@@ -48,7 +48,7 @@ const Calendar: React.FC = () => {
     for (let i = 0; i < 7; i++) {
       const dayName = format(addDays(startDate, i), 'EEE').slice(0, -1);
       days.push(
-        <div className="flex justify-center font-inter font-semibold text-xs text-gray-500" key={i}>
+        <div className="flex justify-center font-inter font-semibold text-xs text-gray-500 mt-3" key={i}>
           {dayName}
         </div>
       );
@@ -76,14 +76,14 @@ const Calendar: React.FC = () => {
             onClick={() => setSelectedDate(cloneDay)}
           >
             <div className={`flex flex-col px-2 justify-center items-center font-inter font-semibold text-sm 
-              ${isSameDay(day, selectedDate) ? 'bg-blue-500 text-white rounded-3xl px-3 py-2' : ''} 
+              ${isSameDay(day, selectedDate) ? 'bg-blue-500 text-white rounded-3xl px-3 pt-2 pb-2' : ''} 
               ${isSameDay(day, new Date()) && !isSameDay(day, selectedDate) ? 'text-blue-500' : ''}`}
             >
               {formattedDate}
             </div>
             {isBefore(day, new Date()) ? (
               <div className="w-1 h-1 bg-blue-500 rounded-full mt-1 "></div>
-            ) : <div className="w-1 h-1 bg-white rounded-full mt-1 "></div> }
+            ) : <div className="w-1 h-1 bg-white rounded-full mt-1 "></div>}
           </div>
         );
 
@@ -108,12 +108,12 @@ const Calendar: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col flex-grow h-screen">
+    <>
       {width !== undefined && width < 1024 ? (
-        <div className="flex flex-grow">
-          <div className="flex flex-col w-full flex-grow justify-between px-4 relative">
+        <div className="flex flex-col flex-grow w-full px-4">
+          <div className="h-44 mb-3">
             {renderHeader()}
-            <div className="flex justify-between items-center border border-gray-200 rounded-2xl bg-slate-200 mb-2.5">
+            <div className="flex justify-between items-center border border-gray-200 rounded-2xl bg-slate-200">
               <Link href="/" className="w-1/2 border border-gray-200 py-1.5 px-4 rounded-2xl text-center font-semibold text-xs bg-white">
                 Week
               </Link>
@@ -121,88 +121,112 @@ const Calendar: React.FC = () => {
                 Month
               </Link>
             </div>
-            <div className="flex-1 border-b border-gray-200">
-              {renderDays()}
-              {renderCells()}
-              <ScrollShadow hideScrollBar className="w-full h-96">
-                <div className="flex flex-col mx-2 ">
-                  <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                    <div className='flex justify-center items-center'>
-                      <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                      <span>11:00 - 12:00</span>
-                    </div>
-                    <span>€80</span>
-                  </div>
-                  <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                    <div className='flex justify-center items-center'>
-                      <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                      <span>11:00 - 12:00</span>
-                    </div>
-                    <span>€80</span>
-                  </div>
-                  <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                    <div className='flex justify-center items-center'>
-                      <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                      <span>11:00 - 12:00</span>
-                    </div>
-                    <span>€80</span>
-                  </div>
-                  <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                    <div className='flex justify-center items-center'>
-                      <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                      <span>11:00 - 12:00</span>
-                    </div>
-                    <span>€80</span>
-                  </div>
-                  <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                    <div className='flex justify-center items-center'>
-                      <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                      <span>11:00 - 12:00</span>
-                    </div>
-                    <span>€80</span>
-                  </div>
-                  <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                    <div className='flex justify-center items-center'>
-                      <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                      <span>11:00 - 12:00</span>
-                    </div>
-                    <span>€80</span>
-                  </div>
-                  <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                    <div className='flex justify-center items-center'>
-                      <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                      <span>11:00 - 12:00</span>
-                    </div>
-                    <span>€80</span>
-                  </div>
-                  <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                    <div className='flex justify-center items-center'>
-                      <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                      <span>11:00 - 12:00</span>
-                    </div>
-                    <span>€80</span>
-                  </div>
-                  <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                    <div className='flex justify-center items-center'>
-                      <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                      <span>11:00 - 12:00</span>
-                    </div>
-                    <span>€80</span>
-                  </div>
-                </div>
-              </ScrollShadow>
+            {renderDays()}
+            {renderCells()}
+          </div>
+          <div className="w-ful">
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
             </div>
-            <div className="flex justify-center items-center border-t border-gray-200 w-full absolute bottom-0 left-0 bg-white">
-              <Button className="h-12 my-3 w-11/12 max-w-96 bg-black text-white rounded-lg">Select payment method</Button>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
             </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+          </div>
+          <div className="flex justify-center items-center border-t border-gray-200 w-full absolute bottom-0 left-0 z-40 bg-white">
+            <Button className="h-12 my-3 w-11/12 max-w-96 bg-black text-white rounded-lg">Select payment method</Button>
           </div>
         </div>
       ) : (
-        <div className="hidden lg:flex lg:flex-grow">
+        <div className="hidden lg:flex ">
           <CalendarBig />
         </div>
       )}
-    </div>
+    </>
   );
 };
 

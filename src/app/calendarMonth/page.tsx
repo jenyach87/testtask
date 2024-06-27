@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button } from '@nextui-org/react';
 import CalendarBig from '../CalendarFullScreen/page';
 import useWindowSize from "../Hooks/UseWindowsSize";
-
+import { ScrollShadow } from "@nextui-org/react";
 const CalendarFull = () => {
   const { width } = useWindowSize();
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -22,9 +22,6 @@ const CalendarFull = () => {
     }
   };
 
-  const onDateClick = (day: React.SetStateAction<Date>) => {
-    setSelectedDate(day);
-  };
 
   const customContent = (
     <div className="w-full flex justify-between items-center border border-gray-200 rounded-2xl bg-slate-200 mb-2.5">
@@ -123,62 +120,60 @@ const CalendarFull = () => {
 
 
   return (
-    <div className="flex flex-col flex-grow h-screen">
+    <>
       {width !== undefined && width < 1024 ? (
-        <div className="flex flex-grow">
-          <div className="flex flex-col w-full flex-grow justify-between px-4 lg:hidden">
+        <div className="flex flex-col flex-grow w-full px-4">
+          <div className=" h-93 mt-3 ">
             {renderHeader()}
-            <div className="overflow-y-auto max-h-48">
-              {renderDays()}
+            {renderDays()}
+            {renderCells()}
+          </div>
+          <div className="w-ful">
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
             </div>
-            <div className="flex flex-col mx-1 overflow-y-scroll max-h-80">
-              {renderCells()}
-              <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                <div className='flex justify-center items-center'>
-                  <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                  <span>11:00 - 12:00</span>
-                </div>
-                <span>€80</span>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
               </div>
-              <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                <div className='flex justify-center items-center'>
-                  <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                  <span>11:00 - 12:00</span>
-                </div>
-                <span>€80</span>
-              </div>
-              <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                <div className='flex justify-center items-center'>
-                  <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                  <span>11:00 - 12:00</span>
-                </div>
-                <span>€80</span>
-              </div>
-              <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                <div className='flex justify-center items-center'>
-                  <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                  <span>11:00 - 12:00</span>
-                </div>
-                <span>€80</span>
-              </div>
-              <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                <div className='flex justify-center items-center'>
-                  <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                  <span>11:00 - 12:00</span>
-                </div>
-                <span>€80</span>
-              </div>
-              <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
-                <div className='flex justify-center items-center'>
-                  <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
-                  <span>11:00 - 12:00</span>
-                </div>
-                <span>€80</span>
-              </div>
+              <span>€80</span>
             </div>
-            <div className="flex justify-center items-center border-t border-gray-200 w-full mt-auto">
-              <Button className="h-12 w-11/12 max-w-96 bg-black text-white rounded-lg ">Select payment method</Button>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
             </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+            <div className='flex justify-between items-center border-2 border-gray-200 rounded-xl px-3 py-3 mt-2'>
+              <div className='flex justify-center items-center'>
+                <input type='radio' className="rounded-full h-4 w-4 mr-1 "></input>
+                <span>11:00 - 12:00</span>
+              </div>
+              <span>€80</span>
+            </div>
+          </div>
+          <div className="flex justify-center items-center border-t border-gray-200 w-full absolute bottom-0 left-0 z-40 bg-white">
+            <Button className="h-12 my-3 w-11/12 max-w-96 bg-black text-white rounded-lg">Select payment method</Button>
           </div>
         </div>
       ) : (
@@ -188,7 +183,7 @@ const CalendarFull = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
