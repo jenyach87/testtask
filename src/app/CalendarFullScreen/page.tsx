@@ -105,7 +105,7 @@ const CalendarBig = () => {
 
   return (
     <div className="max-w-1088 flex flex-grow overflow-auto justify-between my-0 px-3 mx-auto">
-      <div className="max-w-528 flex flex-grow flex-col justify-between border-2 border-gray-200 rounded-3xl p-8 pb-4">
+      <div className="max-w-528 flex flex-grow flex-col justify-between border-2 border-gray-200 rounded-3xl p-8 pb-4 mb-3">
         <div className="flex flex-col flex-grow">
           <span className="font-inter text-2xl font-semibold tracking-tight text-left text-gray-800">Select date and time</span>
           <div className="flex justify-start items-center my-4 ">
